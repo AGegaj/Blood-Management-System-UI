@@ -1,0 +1,56 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Request List</h4>
+            <div class="row">
+              <div class="form-group col-xs-offset-10">
+              <select name="select" class="form-control form-control-primary" (change)="filterByConfirmStatus($event)">
+                <option disabled selected value="0">Filter by Status</option>
+                <option value="CONFIRMED">CONFIRMED</option>
+                <option value="UNCONFIRMED">UNCONFIRMED</option>
+                <option value="">ALL</option>
+              </select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="card-body">
+
+            <div class="table-responsive ml-2 mr-2">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th class="text-center">Blood Group</th>
+                  <th class="text-center">Requested Date</th>
+                  <th class="text-center">Status</th>
+                </tr>
+                </thead>
+                <tr *ngFor="let request of requestList; let i = index">
+                  <td class="text-center">{{request.bloodGroup}}</td>
+                  <td class="text-center">{{request.requiredDate}}</td>
+                  <td class="text-center">{{request.status}}</td>
+
+                </tr>
+              </table>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <p style="margin-left: 8px; color: maroon;"><em>If you need blood, make a request here: </em></p>
+              </div>
+              <div class="col-md-8">
+                <button (click)="createRequest()" class="btn btn-sm btn-primary btn-outline-primary">Request</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">User Donators</h4>
+            <a [routerLink]="['/add-user']" class="btn btn-primary btn-outline-primary btn-sm add-button"><i
+              class="fa fa-plus "></i>Add</a>
+            <div class="row">
+              <div class="form-group col-xs-3">
+                <input type="text" class="form-control input-group-lg reg_name" id="firstName" placeholder="First Name"
+                       [(ngModel)]="firstName" (keypress)="filterData()" >
+              </div>
+              <div class="form-group col-xs-3">
+                <input type="text" class="form-control input-group-lg reg_name" id="lastName" placeholder="Last Name"
+                       [(ngModel)]="lastName" (keypress)="filterData()">
+              </div>
+              <div class="form-group col-xs-3">
+                <input type="text" class="form-control input-group-lg reg_name" id="personalNumber" placeholder="ID No."
+                       [(ngModel)]="personalNumber" (keypress)="filterData()">
+              </div>
+              <div class="form-group col-xs-3">
+                <input type="text" class="form-control input-group-lg reg_name" id="city" placeholder="City"
+                       [(ngModel)]="city" (keypress)="filterData()">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="card-body">
+
+            <div class="table-responsive ml-2 mr-2">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>Person</th>
+                  <th>Username</th>
+                  <th>Date of Creation</th>
+                  <th>Blood Group</th>
+                  <th>Person ID Number</th>
+                  <th>State</th>
+                  <th>City</th>
+                  <th>Weight</th>
+                  <th>Age</th>
+                  <th>Gender</th>
+                  <th></th>
+                  <th class="view-edit-delete-button"></th>
+                </tr>
+                </thead>
+                <tr *ngFor="let user of viewUsers; let i = index">
+                  <td>{{user.firstName}} {{user.lastName}}</td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.createdDate}}</td>
+                  <td>{{user.group}}</td>
+                  <td>{{user.personalNumber}}</td>
+                  <td>{{user.country}}</td>
+                  <td>{{user.city}}</td>
+                  <td>{{user.weight}}</td>
+                  <td>{{user.age}}</td>
+                  <td>{{user.gender}}</td>
+                  <td><img src="/assets/img/users/{{user.image}}" width="64" height="64"></td>
+
+
+                  <td>
+                    <button [routerLink]="['/edit-user', user.id]"
+                            class="btn btn-sm btn-primary btn-outline-primary float-right"><i class="fa fa-pencil"></i>Edit
+                    </button>
+                    <button class="btn btn-sm btn-danger btn-outline-danger float-right ml-1" (click)="delete(user.id)">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

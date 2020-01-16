@@ -1,0 +1,156 @@
+<div class="main-content" >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Edit User</h4>
+          </div>
+          <div class="content">
+
+              <div class="row">
+                <div class="col-md-2"></div>
+
+                <div class="col-md-8">
+                  <div class="row">
+
+
+                    </div>
+                    <div class="col-md-6">
+                      <h5>Basic information</h5>
+                      <div class="form-group row m-t-20">
+                        <div class="col-md-12">
+                          <label>First Name</label>
+                          <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="firstName">
+                          <div class="messages text-danger">{{nameError}}</div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-md-12">
+                          <label>Last Name</label>
+                          <input type="text" class="form-control" id="surname" placeholder="Surname" [(ngModel)]="lastName">
+                          <div class="messages text-danger">{{surnameError}}</div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-md-12">
+                          <label>Username</label>
+                          <input type="text" disabled class="form-control" id="username" placeholder="Username" [(ngModel)]="userName">
+                          <div class="messages text-danger">{{usernameError}}</div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-md-12">
+                          <label>Email</label>
+                          <input type="text" disabled class="form-control" id="email" placeholder="Email" [(ngModel)]="email">
+                          <div class="messages text-danger">{{emailError}}</div>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <div class="col-md-12">
+                          <label>Personal No.</label>
+                          <input  disabled type="text" class="form-control" id="name2" placeholder="Personal Number"
+                                 [(ngModel)]="personalNumber">
+                          <div class="messages text-danger">{{personalNumberError}}</div>
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <div class="col-md-12">
+                          <label>Role</label>
+
+                          <input  disabled type="text" class="form-control" id="role"
+                                  [(ngModel)]="role">
+
+                        </div>
+                        <div class="messages text-danger">{{roleIdError}}</div>
+                      </div>
+                      <div  class="col-md-12">
+                        <h5 >Donator information</h5>
+                        <div class="form-group row m-t-20">
+                          <div class="col-md-12">
+                            <label>Age</label>
+                            <input type="number" class="form-control" id="age" placeholder="Age" [(ngModel)]="age">
+                            <div class="messages text-danger">{{ageError}}</div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-md-12">
+                            <label>Weigh</label>
+                            <input type="number" class="form-control" id="weigh" placeholder="Weigh" [(ngModel)]="weigh">
+                            <div class="messages text-danger">{{weighError}}</div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                        <div class="col-md-12">
+                          <label>Gender</label>
+                          <input  disabled type="text" class="form-control" id="gender"
+                                  [(ngModel)]="gender">
+
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-md-12">
+                            <label>Blood Group</label>
+                            <input  disabled type="text" class="form-control" id="group"
+                                    [(ngModel)]="group">
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  <div class="col-md-6">
+                    <div class="user-card sub-title">
+                      <h5 class="centered-content">Photo</h5>
+                      <div class="card-header-img">
+                        <img id="img2" class="img-radius img-thumbnail" [src]="imageBase64" alt="card-img" width="230px"
+                             height="230px">
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-12 m-t-15 text-center m-b-20">
+                          <input id='browse-id' type='file' (change)="handleFileSelect($event)" hidden/>
+
+                        </div>
+                      </div>
+                    </div>
+                    <h5>Address information</h5>
+                    <div class="form-group row m-t-20">
+                      <div class="col-md-12">
+                        <label>Country</label>
+                        <input type="text" class="form-control" id="name1" placeholder="Country" [(ngModel)]="country">
+                        <div class="messages text-danger">{{countryError}}</div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-md-12">
+                        <label>City</label>
+                        <input type="text" class="form-control" id="surname1" placeholder="City" [(ngModel)]="city">
+                        <div class="messages text-danger" *ngIf="cityError != null || cityError != ''">{{cityError}}</div>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+
+                  <hr>
+
+
+                </div>
+
+                <div class="col-md-2"></div>
+              </div>
+
+            <button type="submit" class="btn btn-info btn-fill pull-right" (click)="updateUser()">Update User</button>
+              <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

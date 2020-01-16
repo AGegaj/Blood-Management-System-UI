@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="header">
+                  <h4 class="title">Donations</h4>
+
+                  <div class="row">
+                    <div class="form-group col-xs-3">
+                      <input type="text" class="form-control input-group-lg reg_name" id="firstName" placeholder="First Name"
+                             [(ngModel)]="firstName" (keypress)="filterData()" >
+                    </div>
+                    <div class="form-group col-xs-3">
+                      <input type="text" class="form-control input-group-lg reg_name" id="lastName" placeholder="Last Name"
+                             [(ngModel)]="lastName" (keypress)="filterData()">
+                    </div>
+                    <div class="form-group col-xs-3">
+                      <input type="text" class="form-control input-group-lg reg_name" id="personalNumber" placeholder="ID No."
+                             [(ngModel)]="personalNumber" (keypress)="filterData()">
+                    </div>
+                    <div class="form-group col-xs-3">
+                      <input type="text" class="form-control input-group-lg reg_name" id="city" placeholder="City"
+                             [(ngModel)]="city" (keypress)="filterData()">
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="card-body">
+
+                  <div class="table-responsive ml-2 mr-2">
+                    <table class="table table-hover">
+                      <thead>
+                      <tr>
+                        <th>Camp Name</th>
+                        <th>Date of Donation</th>
+                        <th>Blood Group</th>
+                        <th>Quantity</th>
+                        <th>Person</th>
+                        <th>Person ID Number</th>
+                        <th>State</th>
+                        <th>City</th>
+                        <th class="view-edit-delete-button"></th>
+                      </tr>
+                      </thead>
+                      <tr *ngFor="let donation of viewDonations; let i = index">
+                        <td>{{donation.campTitle}}</td>
+                        <td>{{donation.donationDate}}</td>
+                        <td>{{donation.group}}</td>
+                        <td>{{donation.quantity}}</td>
+                        <td>{{donation.firstName}} {{donation.lastName}}</td>
+                        <td>{{donation.personalNumber}}</td>
+                        <td>{{donation.state}}</td>
+                        <td>{{donation.city}}</td>
+
+                        <td>
+                          <a [routerLink]="['/edit-camp', donation.donationId]"
+                             class="btn btn-sm btn-primary btn-outline-primary float-right"><i class="fa fa-pencil"></i>Edit</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>

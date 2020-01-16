@@ -1,0 +1,84 @@
+<div class="main-content" >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Update Camp</h4>
+          </div>
+          <div class="content">
+
+            <div class="row">
+              <div class="col-md-2"></div>
+
+              <div class="col-md-8">
+                <div class="row">
+
+
+                </div>
+                <div class="col-md-8">
+                  <h5>Basic information</h5>
+                  <div class="form-group row m-t-20">
+                    <div class="col-md-12">
+                      <label>Camp Title</label>
+                      <input type="text" class="form-control" id="title" placeholder="Camp Title" [(ngModel)]="campTitle">
+                      <div class="messages text-danger">{{campTitleError}}</div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <label>State</label>
+                      <input type="text" class="form-control" id="state" placeholder="State" [(ngModel)]="state">
+                      <div class="messages text-danger">{{stateError}}</div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <label>City</label>
+                      <input type="text" class="form-control" id="city" placeholder="City" [(ngModel)]="city">
+                      <div class="messages text-danger">{{cityError}}</div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <label>Details</label>
+                      <textarea type="text" rows="7" class="form-control" id="details" placeholder="Details" [(ngModel)]="details"></textarea>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="user-card sub-title">
+                        <h5 class="centered-content">Photo</h5>
+                        <div class="card-header-img">
+                          <img id="img2" class="img-radius img-thumbnail" [src]="imageBase64" alt="card-img" width="230px"
+                               height="230px">
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12 m-t-15 text-center m-b-20">
+                            <input id='browse-id' type='file' (change)="handleFileSelect($event)" hidden/>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                  <hr>
+                  <button type="submit" class="btn btn-info btn-fill pull-right" (click)="updateCamp()">Update Camp</button>
+                  <div class="clearfix"></div>
+
+                </div>
+
+                <div class="col-md-2"></div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

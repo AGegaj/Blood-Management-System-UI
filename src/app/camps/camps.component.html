@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="header">
+                  <h4 class="title">Camps</h4>
+                  <a [routerLink]="['/add-camp']" class="btn btn-primary btn-outline-primary btn-sm add-button"><i
+                    class="fa fa-plus "></i>Add</a>
+                </div>
+
+                <div class="card-body">
+
+                  <div class="table-responsive ml-2 mr-2">
+                    <table class="table table-hover">
+                      <thead>
+                      <tr>
+                        <th>Title</th>
+                        <th>State</th>
+                        <th>City</th>
+                        <th>Details</th>
+                        <th></th>
+                        <th class="view-edit-delete-button"></th>
+                      </tr>
+                      </thead>
+                      <tr *ngFor="let camp of viewCamps; let i = index">
+                        <td>{{camp.campTitle}}</td>
+                        <td>{{camp.state}}</td>
+                        <td>{{camp.city}}</td>
+                        <td>{{camp.details}}</td>
+                        <td><img src="{{camp.img}}" width="64" height="64" alt="camp img" class="table-image"></td>
+
+                        <td>
+                          <a [routerLink]="['/edit-camp', camp.campId]"
+                             class="btn btn-sm btn-primary btn-outline-primary float-right"><i class="fa fa-pencil"></i>Edit</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+</div>

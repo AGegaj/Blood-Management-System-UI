@@ -1,0 +1,61 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Request List</h4>
+            <div class="row">
+              <div class="form-group col-xs-offset-10">
+              <select name="select" class="form-control form-control-primary" (change)="filterByConfirmStatus($event)">
+                <option disabled selected value="0">Filter by Status</option>
+                <option value="CONFIRMED">CONFIRMED</option>
+                <option value="UNCONFIRMED">UNCONFIRMED</option>
+                <option value="">ALL</option>
+              </select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="card-body">
+
+            <div class="table-responsive ml-2 mr-2">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Personal Number</th>
+                  <th>Blood Group</th>
+                  <th>Requested Date</th>
+                  <th>Email</th>
+                  <th class="view-edit-delete-button"></th>
+                </tr>
+                </thead>
+                <tr *ngFor="let request of requestList; let i = index">
+                  <td>{{request.userFirstName}} {{request.userLastName}}</td>
+                  <td>{{request.personalNumber}}</td>
+                  <td>{{request.bloodGroup}}</td>
+                  <td>{{request.requiredDate}}</td>
+                  <td>{{request.userEmail}}</td>
+
+
+                  <td>
+                    <button *ngIf="request.status == 'UNCONFIRMED'"
+                       class="btn btn-sm btn-primary btn-outline-primary float-right" (click)="confirm(request.requestId)"><i class="fa fa-pencil"></i>Confirm Request</button>
+                    <button *ngIf="request.status == 'CONFIRMED'" disabled
+                            class="btn btn-sm btn-primary btn-outline-primary float-right"><i class="fa fa-pencil"></i>Confirmed</button>
+                    <button class="btn btn-sm btn-danger btn-outline-danger float-right ml-1" (click)="deleteRequest(request.requestId)">Delete
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
