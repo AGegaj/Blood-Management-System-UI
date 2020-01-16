@@ -1,4 +1,4 @@
-# [UI for Blood Management System with Angular]
+# UI for Blood Management System with Angular
 
 
 
